@@ -1,0 +1,61 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(assets/images/auth-bg.jpg);background-size:cover;">
+    <div class="auth-box m-3 m-md-0">
+        <div id="loginform">            
+            <div class="logo">
+                <img src="/assets/images/10.png" />
+            </div>
+            <br />
+            <!-- Form -->
+            <div class="form-row">
+                <div class="col-12">
+                    <form class="form-horizontal m-t-20"
+                role="form" autocomplete="off"
+                [formGroup]="accountFormGroup"
+                (ngSubmit)="autenticar($event)">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                            </div>
+                            <input class="form-control text-lowercase"
+                                   placeholder="Usuario"
+                                   aria-label="Usuario"
+                                   formControlName="usuario"
+                                   [class.is-invalid]="campoInvalido('usuario')"
+                     [class.is-valid]="campoValido('usuario')"
+                                   type="text"
+                                    />
+                           
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2"><i class="ti-lock"></i></span>
+                            </div>
+                            <input class="form-control"
+                                   type="password"
+                                   placeholder="Contraseña"
+                                   aria-label="Contraseña"
+                                   formControlName="password"
+                                   [class.is-invalid]="campoInvalido('password')"
+                     [class.is-valid]="campoValido('password')"
+                                   aria-describedby="basic-addon1"/>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <a id="to-recover" class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> ¿Olvidaste tu Contraseña?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-info" type="submit"><i class="fa"></i>Ingresar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

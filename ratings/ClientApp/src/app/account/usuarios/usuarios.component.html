@@ -1,0 +1,28 @@
+
+<h1 id="tableLabel">USUARIOS</h1>
+
+<p>usuarios works!</p>
+
+<p *ngIf="!usuarios"><em>Loading...</em></p>
+<div class="row">
+    <div class="col text-right">
+        <button class="btn-primary btn-success" routerLink="usuario/0"> <i class="fa fa-plus"></i>Agragar</button>
+    </div>
+</div>
+<br />
+    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="usuarios">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha Alta</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{ usuario.userName }}</td>
+                <td>{{ usuario.fechaAlta | date :'dd/MM/yyyy' }}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
