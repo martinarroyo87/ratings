@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from '../../services/account.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -35,7 +35,24 @@ export class AccountComponent implements OnInit {
             (res: any) => {
                 console.log(res);
                 if (res.exito) {
-                    this.router.navigate(['./']);
+                     Swal.fire({
+                        title: 'RATING',
+                        text: 'Bienvenido a Ratingapp',
+                        icon: 'info',
+                         allowOutsideClick: () => true,  
+                        
+                     }
+                     ).then(function () {
+                         this.router.navigate(['./']);
+                     });
+                    
+                } else {
+                    Swal.fire({
+                        title: 'RATING',
+                        text: 'Usuario o contraseña incorrectos.',
+                        icon: 'error',
+                    }
+                    );
                 }
             }
         );
